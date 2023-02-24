@@ -13,7 +13,7 @@ export default function WeatherPage() {
     const location = router.query.location || "Vancouver";
     console.log(location);
 
-    const apiKey = "a83715130f9c2d02acc1f8fa1c3780e3";
+    const apiKey = process.env.NEXT_PUBLIC_OPENWEATHERMAP_API_KEY;
     const units = "metric";
 
     const url = `https://api.openweathermap.org/data/2.5/forecast?q=${location}&units=${units}&appid=${apiKey}`;
