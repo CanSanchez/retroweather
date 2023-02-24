@@ -3,11 +3,17 @@ import Image from 'next/image'
 import styles from '@/styles/Home.module.css'
 import { useEffect, useRef, useState } from 'react'
 import axios from 'axios'
+import { useRouter } from 'next/router'
 
-export default function Home() {
+export default function WeatherPage() {
+
+    const router = useRouter();
+
+    //dynamically get location from query string
+    const location = router.query.location;
+    console.log(location);
 
   const apiKey = "a83715130f9c2d02acc1f8fa1c3780e3";
-  const location = "Vancouver";
   const units = "metric";
 
   const url = `https://api.openweathermap.org/data/2.5/forecast?q=${location}&units=${units}&appid=${apiKey}`;
@@ -121,46 +127,11 @@ let weatherData = response.data.list.map((weather, index) => {
         <link rel="icon" href="favicon-retroweather.png" />
       </Head>
       <main className={styles.main}>
-          <div className={styles.header}>
-            <Image 
-              src="/fonts/title.png" 
-              alt="Weather Forecast Logo" 
-              width={540} height={200} priority 
-              id={styles.logo}
-              />
-          </div>
-          <button 
-            onClick={fetchWeather}
-            className={styles.button}>
-            START
-          </button>
-        <div className={styles.foreGround}>
-          <Image 
-            src="/background/foreground.png" 
-            alt="Foreground" 
-            width={1540} height={180} priority 
-            id={styles.ground}
-          />
-        </div>
-        <div className={styles.backGround}>
-          <Image
-            src="/background/backgroundgreen.png"
-            alt="Background"
-            width={1540}
-            height={180}
-            priority
-            id={styles.bgGreen}
-          />
-        </div>
-        <div className={styles.backGround}>
-          <Image
-            src="/background/backgroundblue.png"
-            alt="Background"
-            width={1540}
-            height={180}
-            priority
-            id={styles.bgBlue}
-          />
+        <h1 className={styles.title}>
+            Retro Weather App
+        </h1>
+        <div>
+            {data}
         </div>
       </main>
     </>

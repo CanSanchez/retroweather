@@ -11,7 +11,19 @@ export default function Home() {
 
   const [isStart, setIsStart] = useState(false);
 
+  //pass the location from this page to the weather page
   const [location, setLocation] = useState("Vancouver");
+
+  const handleSubmit = () => {
+    router.push(`/weather?location=${location}`);
+  }
+
+  //click when user presses enter
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      handleSubmit();
+    }
+  }
 
   return (
     <>
@@ -36,14 +48,21 @@ export default function Home() {
                       className={styles.input} 
                       type="text" 
                       placeholder="Enter City Name"
-                      onChange={(e)=>setLocation(e.target.value)} />
+                      onChange={(e)=>setLocation(e.target.value)} 
+                      onKeyDown={(e)=>handleKeyDown(e)}/>
+                    <button
+                      className={styles.button}
+                      onClick={()=>handleSubmit()}>
+                      GO
+                    </button>
                   </div>  
             }
           </div>
-          <button 
+          <button
+            style={{display: isStart? "none": "block"}}
             onClick={()=> setIsStart(true)}
             className={styles.button}>
-            {!isStart? "START": "GO"}
+            START
           </button>
         <div className={styles.foreGround}>
           <Image 
