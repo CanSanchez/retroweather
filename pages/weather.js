@@ -20,7 +20,8 @@ export default function WeatherPage() {
 
     const [data, setData] = useState();
     const grabWeather = useRef(false);
-
+    console.log('data here');
+    console.log(data);
 
     const fetchWeather = async () => {
     const response = await axios.get(url);
