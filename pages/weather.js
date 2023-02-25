@@ -121,12 +121,9 @@ export default function WeatherPage() {
 
 
     useEffect(() => {
-        if (grabWeather.current === true) {
+
         fetchWeather();
-        }
-        return () => {
-        grabWeather.current = true;
-        }
+        
     }, []);
 
     const current =  new Date();
@@ -144,9 +141,6 @@ export default function WeatherPage() {
         <h1 className={styles.title}>
             Retro Weather App
         </h1>
-        <p className={styles.description}>
-            test
-        </p>
         <div>
            
         {/* map through data */}
