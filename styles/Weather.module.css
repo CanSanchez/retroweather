@@ -42,6 +42,16 @@
     z-index: 15;
 }
 
+.button:hover {
+    transform: translateY(-.3em);
+    box-shadow: 0 .1em #E22B17;
+}
+
+.button:active {
+    transform: translateY(.3em);
+    box-shadow: 0 .3em #E22B17;
+}
+
 .container {
     display: flex;
     flex-direction: column;

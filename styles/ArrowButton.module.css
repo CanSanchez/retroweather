@@ -15,6 +15,14 @@
     z-index: 100;
 }
 
+.buttonarrow:hover {
+    transform: translateY(-.3em);
+}
+
+.buttonarrow:active {
+    transform: translateY(.3em);
+}
+
 .buttonarrow h2 {
     margin: 0;
     font-family: 'Press Start 2p';
