@@ -157,18 +157,6 @@ export default function WeatherPage() {
       </Head>
       <main className={styles.main}>
         <div className={styles.container}>
-            <div className={styles.buttonContainer}>
-                <ArrowButton
-                    icon='/icons/prevarrow.svg'
-                    onClick={handlePrevClick}
-                    name='prev'
-                />
-                <ArrowButton
-                    icon='/icons/nextarrow.svg'
-                    onClick={handleNextClick}
-                    name='next'
-                />
-            </div>
         {data && data.map((weather, index) => {
 
             if (weather !== undefined) {
@@ -186,6 +174,18 @@ export default function WeatherPage() {
                  )
             }
         })}
+            <div className={styles.buttonContainer}>
+                <ArrowButton
+                    icon='/icons/prevarrow.svg'
+                    onClick={handlePrevClick}
+                    name='prev'
+                />
+                <ArrowButton
+                    icon='/icons/nextarrow.svg'
+                    onClick={handleNextClick}
+                    name='next'
+                />
+            </div>
             <button
                 onClick={() => router.back()} 
                 className={styles.button}
