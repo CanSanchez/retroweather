@@ -30,6 +30,8 @@ export default function Home() {
       <Head>
         <title>Retro Weather App</title>
         <meta name="description" content="Retro Weather app gives 5-day weather forecast in pixel art" />
+        <meta property="author" content="Can Sanchez"></meta>
+        <meta property="og:image" content="preview.png"></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="favicon-retroweather.png" />
       </Head>
