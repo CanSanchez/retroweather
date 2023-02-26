@@ -10,8 +10,7 @@ html, body {
   }
 }
 
-@viewport {
-  width: device-width;
-  height: device-height;
-  initial-scale: 1;
+input:focus {
+  /* Disable zooming when input is focused */
+  user-zoom: none;
 }
