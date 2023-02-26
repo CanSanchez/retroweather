@@ -1,9 +1,11 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '@/styles/Home.module.css'
+import styles from '@/styles/Weather.module.css'
 import { useEffect, useRef, useState } from 'react'
 import axios from 'axios'
 import { useRouter } from 'next/router'
+import WeatherCard from '@/components/weathercard'
+import ArrowButton from '@/components/arrowbutton'
 
 export default function WeatherPage() {
 
@@ -84,9 +86,34 @@ export default function WeatherPage() {
             }
 
             var now = new Date(weather.dt_txt);
-            var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-            var day = days[now.getDate()];
-
+            console.log(now);
+            //get day of week based on date
+            var day = now.getDay();
+            console.log(day);
+            switch(day) {
+                case 0:
+                    day = 'Sunday';
+                    break;
+                case 1:
+                    day = 'Monday';
+                    break;
+                case 2:
+                    day = 'Tuesday';
+                    break;
+                case 3:
+                    day = 'Wednesday';
+                    break;
+                case 4:
+                    day = 'Thursday';
+                    break;
+                case 5:
+                    day = 'Friday';
+                    break;
+                case 6:
+                    day = 'Saturday';
+                    break;
+            }
+            
             //return json object
             return {
                 day: day,
@@ -96,38 +123,44 @@ export default function WeatherPage() {
                 weather: weather.weather[0].main,
                 icon: icon
             }
-            // return (
-            //     <div key={index}>
-            //     <Image
-            //         src={icon}
-            //         alt={icon}
-            //         width={180}
-            //         height={180}
-            //         priority
-            //     />
-            //     <p>{day}</p>
-            //     <p>{month} {weather.dt_txt.substr(8,2)}</p>
-            //     <p>{weather.main.temp.toFixed(1)}°C</p>
-            //     <p>{weather.weather[0].main}</p>
-            //     </div>
-            // )
         }
     })
-        console.log(arrayOfDays);
-        setData(weatherData);
-        console.log("data");
-        console.log(weatherData);
-    }
 
+        console.log(arrayOfDays);
+        setData(weatherData.filter((weather) => {
+            return weather !== undefined;
+            }));
+        setActiveIndex(0);
+        console.log("data");
+        console.log(weatherData.filter((weather) => {
+            return weather !== undefined;
+        }));
+    }
 
     useEffect(() => {
 
         fetchWeather();
-        
+
     }, []);
 
     const current =  new Date();
     const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
+    console.log(date);
+
+    const [activeIndex, setActiveIndex] = useState(0);
+  
+    const handlePrevClick = () => {
+      setActiveIndex((activeIndex - 1 + data.length) % data.length);
+        //if activeIndex is 0, then set it to 4
+        if(activeIndex === 0) {
+            setActiveIndex(data.length - 1);
+        }
+    };
+  
+    const handleNextClick = () => {
+      setActiveIndex((activeIndex + 1) % data.length);
+      //if activeIndex is 4, then set it to 0
+    };
 
   return (
     <>
@@ -138,33 +171,87 @@ export default function WeatherPage() {
         <link rel="icon" href="favicon-retroweather.png" />
       </Head>
       <main className={styles.main}>
-        <h1 className={styles.title}>
-            Retro Weather App
-        </h1>
-        <div>
-           
-        {/* map through data */}
-
+        <div className={styles.container}>
+            <div className={styles.buttonContainer}>
+                <ArrowButton
+                    icon='/icons/prevarrow.svg'
+                    onClick={handlePrevClick}
+                    name='prev'
+                    style={{
+                        position: 'fixed',
+                        left: '5em',
+                        top: '50%'
+                    }}
+                />
+                <ArrowButton
+                    icon='/icons/nextarrow.svg'
+                    onClick={handleNextClick}
+                    name='next'
+                    style={{
+                        position: 'fixed',
+                        right: '5em',
+                        top: '50%'
+                    }}
+                />
+            </div>
         {data && data.map((weather, index) => {
 
             if (weather !== undefined) {
                  return (
-                    <div key={index}>
-                        <Image
-                            src={weather.icon}
-                            alt={weather.icon}
-                            width={180}
-                            height={180}
-                            priority
-                        />
-                        <p>{weather.day}</p>
-                        <p>{weather.month} {weather.date}</p>
-                        <p>{weather.temp}°C</p>
-                        <p>{weather.weather}</p>
-                    </div>
+                    // <div key={index}>
+                    //     <Image
+                    //         src={weather.icon}
+                    //         alt={weather.icon}
+                    //         width={180}
+                    //         height={180}
+                    //         priority
+                    //     />
+                    //     <p>{weather.day}</p>
+                    //     <p>{weather.month} {weather.date}</p>
+                    //     <p>{weather.temp}°C</p>
+                    //     <p>{weather.weather}</p>
+                    // </div>
+                    <WeatherCard
+                        isActive={activeIndex === index}
+                        key={index}
+                        icon={weather.icon}
+                        day={weather.day}
+                        month={weather.month}
+                        date={weather.date}
+                        temp={weather.temp}
+                        weather={weather.weather}
+                    />
                  )
             }
         })}
+        </div>
+        <div className={styles.foreGround}>
+          <Image 
+            src="/background/foreground.svg" 
+            alt="Foreground" 
+            width={1540} height={180} priority 
+            id={styles.ground}
+          />
+        </div>
+        <div className={styles.backGround}>
+          <Image
+            src="/background/BGgreen.svg"
+            alt="Background"
+            width={1540}
+            height={180}
+            priority
+            id={styles.bgGreen}
+          />
+        </div>
+        <div className={styles.backGround}>
+          <Image
+            src="/background/BGblue.svg"
+            alt="Background"
+            width={1540}
+            height={180}
+            priority
+            id={styles.bgBlue}
+          />
         </div>
       </main>
     </>

@@ -1,0 +1,34 @@
+.buttonarrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    cursor: pointer;
+    font-size: 1.5rem;
+    height: 2rem;
+    line-height: 1.5rem;
+    margin: 0 0.5rem;
+    padding: 0;
+    text-align: center;
+    width: 2rem;
+    z-index: 100;
+}
+
+.buttonarrow h2 {
+    margin: 0;
+    font-family: 'Press Start 2p';
+    font-size: .8em;
+}
+
+.left {
+    position: fixed;
+    left: 0;
+    top: 50%;
+}
+
+#right {
+    position: fixed;
+    right: 0;
+    top: 50%;
+}

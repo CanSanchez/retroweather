@@ -23,12 +23,11 @@
     font-family: 'Press Start 2p';
     font-size: 5em;
     font-kerning: 2em;
-    color: #E22B17;
+    color: #FFDA40;
     z-index: 4;
     margin: 1em;
 }
-
-/* .h1::before {
+.h1::before {
     content: "Where to?";
     display: block;
     font-family: 'Press Start 2p';
@@ -40,13 +39,13 @@
     position: absolute;
     top: 1.35em;
     left: 4em;
-} */
+}
 
 #logo {
     width: 100%;
     height: fit-content;
     z-index: 4;
-    margin: 10em 2em 2em 2em;
+    margin: 2em;
     animation: float 5s ease-in-out infinite;
 }
 
@@ -102,26 +101,6 @@
     z-index: 4;
 }
 
-.button:hover {
-    transform: translateY(-.3em);
-    box-shadow: 0 .1em #E22B17;
-}
-
-.button:active {
-    transform: translateY(.3em);
-    box-shadow: 0 .3em #E22B17;
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    margin: 4em;
-    z-index: 4;
-}
-
 .input {
     width: 50%;
     height: fit-content;
@@ -138,6 +117,17 @@
     transition: all .2s ease-in-out;
     z-index: 4;
     text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    z-index: 4;
+    width: 100vw;
+    height: 100vh;
 }
 
 
