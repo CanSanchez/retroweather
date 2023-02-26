@@ -162,21 +162,11 @@ export default function WeatherPage() {
                     icon='/icons/prevarrow.svg'
                     onClick={handlePrevClick}
                     name='prev'
-                    // style={{
-                    //     position: 'fixed',
-                    //     left: '5em',
-                    //     top: '50%'
-                    // }}
                 />
                 <ArrowButton
                     icon='/icons/nextarrow.svg'
                     onClick={handleNextClick}
                     name='next'
-                    // style={{
-                    //     position: 'fixed',
-                    //     right: '5em',
-                    //     top: '50%'
-                    // }}
                 />
             </div>
         {data && data.map((weather, index) => {
@@ -191,7 +181,7 @@ export default function WeatherPage() {
                         month={weather.month}
                         date={weather.date}
                         temp={weather.temp}
-                        weather={weather.weather}
+                        weather={'Thunderstorm'}
                     />
                  )
             }

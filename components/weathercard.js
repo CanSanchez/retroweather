@@ -8,6 +8,7 @@ import Rain from './rain'
 import Snow from './snow'
 import Thunderstorm from './thunderstorm'
 import Drizzle from './drizzle'
+import Clouds from './clouds'
 
 export default function WeatherCard(props) {
 
@@ -15,33 +16,10 @@ export default function WeatherCard(props) {
    const location = router.query.location || "Vancouver"
 
     return (
-        <div key={props.index} className={styles.WeatherCard} style={props.isActive? {display: 'flex'}:{display: 'none'}}>
-            {/* <Image
-                src={props.icon}
-                alt={props.icon}
-                width={180}
-                height={180}
-                priority
-            /> */}
-
+        <div key={`${props.index}wc`} className={styles.WeatherCard} style={props.isActive? {display: 'flex'}:{display: 'none'}}>
             {props.weather === "Clouds" &&
             <>
-                <Image
-                    className={styles.cloudy1}
-                    src="/background/cloud1.svg"
-                    alt="cloudy"
-                    width={180}
-                    height={180}
-                    priority
-                />
-                <Image
-                    className={styles.cloudy2}
-                    src="/background/cloud2.svg"
-                    alt="cloudy"
-                    width={180}
-                    height={180}
-                    priority
-                />
+                <Clouds />
             </>
             }
             {props.weather === "Clear" &&

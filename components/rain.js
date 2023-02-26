@@ -1,5 +1,3 @@
-//create a rain component
-
 import React from 'react'
 import Image from 'next/image'
 import styles from '../styles/WeatherCard.module.css'
@@ -28,7 +26,7 @@ export default function Rain() {
             {[...Array(400)].map((e, i) => {
                 return (
                     <Image
-                        key={i}
+                        key={i+'rain'}
                         className={styles.raindrop}
                         style={{animationDelay: `${randomTime()}s`, left: `${randomNum()}vw`}}
                         src="/icons/rain.svg"

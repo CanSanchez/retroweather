@@ -36,6 +36,7 @@
     font-kerning: 2em;
     background-color: #FFDA40;
     box-shadow: 0 .3em #E22B17;
+    color: black;
     cursor: pointer;
     transition: all .2s ease-in-out;
     z-index: 15;

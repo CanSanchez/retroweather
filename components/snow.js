@@ -24,7 +24,7 @@ export default function Snow() {
             {[...Array(300)].map((e, i) => {
                 return (
                     <Image
-                        key={i}
+                        key={`${i}snow`}
                         className={styles.snowflake}
                         style={{animationDelay: `${randomTime()}s`, left: `${randomNum()}vw`}}
                         src="/icons/snow.svg"

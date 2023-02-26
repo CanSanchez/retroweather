@@ -29,7 +29,7 @@ export default function Drizzle() {
             {[...Array(1000)].map((e, i) => {
                 return (
                     <Image
-                        key={i}
+                        key={`${i}+drizzle`}
                         className={styles.raindrop}
                         style={{animationDelay: `${randomTime()}s`, left: `${randomNum()}vw`}}
                         src="/icons/rain.svg"

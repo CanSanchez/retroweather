@@ -95,6 +95,7 @@
     font-family: 'Press Start 2p';
     font-size: 1em;
     font-kerning: 2em;
+    color: black;
     background-color: #FFDA40;
     box-shadow: 0 .3em #E22B17;
     cursor: pointer;
