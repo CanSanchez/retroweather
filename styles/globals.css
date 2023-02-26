@@ -9,3 +9,9 @@ html, body {
     background-color: #145c6a;
   }
 }
+
+@viewport {
+  width: device-width;
+  height: device-height;
+  initial-scale: 1;
+}
