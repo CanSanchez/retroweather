@@ -2,24 +2,22 @@ import React from 'react'
 import Image from 'next/image'
 import styles from '../styles/WeatherCard.module.css'
 
-//create a random number function between 1 and 100
-
+//create a random number function for positioning
 const randomNum = () => {
     return Math.floor(Math.random() * 100);
 }
 
-//create a random time function between 1 and 30
-
+//create a random time function between 0 and 30 for delay
 const randomTime = () => {
     return Math.floor(Math.random() * 30);
 }
 
+//create a random size function between 10 and 30
 const randomSize = () => {
     return Math.floor(Math.random() * (30 - 10 + 5) + 10);
 }
 
-//create a raining effect
-
+//creates a raining effect
 export default function Rain() {
     return (
         <div className={styles.rain}>

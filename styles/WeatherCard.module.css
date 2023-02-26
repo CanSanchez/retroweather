@@ -48,18 +48,19 @@
 }
 /* Cloudy */
 
-.cloud1 {
+.cloud1, .mist1 {
     position: absolute;
     margin: 0;
     z-index: 4;
-    animation: move 40s linear infinite;
+    animation: move 120s linear infinite;
 }
 
-.cloud2 {
+.cloud2, .mist2 {
     position: absolute;
+    right: 0em;
     margin: 0;
     z-index: 4;
-    animation: move reverse 20s linear infinite;
+    animation: move reverse 60s linear infinite;
 }
 
 .clear {
@@ -72,7 +73,7 @@
     animation: float 10s linear infinite;
 }
 
-.rain, .snow, .cloudy {
+.rain, .snow, .cloudy, .misty {
     position: fixed;
     top: 0;
     left: 0;
@@ -109,36 +110,19 @@
     opacity: 0;
 }
 
-.mist1  {
-    max-width: 20vw;
-    height: auto;
-    position: absolute;
-    top: 5em;
-    left: 25em;
-    z-index: 4;
+.mist1, .mist2 {
     opacity: 0.8;
-    animation: move 20s linear infinite;
-}
-
-.mist2 {
-    max-width: 50vw;
-    height: auto;
-    position: absolute;
-    top: 5em;
-    right: 25em;
-    z-index: 4;
-    opacity: 0.8;
-    animation: move 20s linear infinite;
 }
 
 /* animation to move from left to right */
 
 @keyframes move {
+    
     0% {
         transform: translateX(0);
     }
     50% {
-        transform: translateX(10em);
+        transform: translateX(100vh);
     }
     100% {
         transform: translateX(0);
@@ -149,6 +133,7 @@
 /* animation float */
 
 @keyframes float {
+
     0% {
         transform: translateY(0);
     }
@@ -158,22 +143,26 @@
     100% {
         transform: translateY(0);
     }
+
 }
 
 /* animation to move from top to bottom */
 
 @keyframes fall {
+
     0% {
         transform: translateY(0);
     }
     100% {
         transform: translateY(110vh);
     }
+
 }
 
 /* lightning animation grow and appear */
 
 @keyframes lightning {
+
     0% {
         transform: scale(0);
         opacity: 0;
@@ -216,6 +205,24 @@
         width: 60%;
         z-index: 15;
     }
+
+    .clear {
+        top: 20vh;
+        right: 15vh;
+    }
+
+    @keyframes move {
+        0% {
+            transform: translateX(0);
+        }
+        50% {
+            transform: translateX(20em);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    
+    }
 }
 
 /* Mobile devices */
@@ -244,8 +251,29 @@
         width: 60%;
         z-index: 15;
     }
+
+    .clear {
+        width: 30%;
+        height: 30%;
+        top: 10vh;
+        right: 5vh;
+    }
+
     .lightning {
         top: 0;
         left: -20%;
+    }
+
+    @keyframes move {
+        0% {
+            transform: translateX(0);
+        }
+        50% {
+            transform: translateX(10em);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    
     }
 }

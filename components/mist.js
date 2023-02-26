@@ -2,40 +2,39 @@ import React from 'react'
 import Image from 'next/image'
 import styles from '../styles/WeatherCard.module.css'
 
-//creates a random number for positioning
+//create a random number for positioning
 const randomNum = () => {
     return Math.floor(Math.random() * 100);
 }
 
-//creates a random size function between 180 and 300
+//create a random size function between 500 and 800
 const randomSize = () => {
-    return Math.floor(Math.random() * (300 - 180 + 5) + 180);
+    return Math.floor(Math.random() * (800 - 500 + 5) + 500);
 }
 
-//creates a set of clouds
-
-export default function Clouds() {
+//creates a mist effect
+export default function Mist() {
     return (
-        <div className={styles.cloudy}>
+        <div className={styles.misty}>
             {[...Array(5)].map((e, i) => {
                 return (
                     <>
                         <Image
-                            key={`${i}+cloud`}
-                            className={styles.cloud1}
+                            key={`${i}+mist1`}
+                            className={styles.mist1}
                             style={{left: `${randomNum()}vw`, top:`${randomNum()-40}vh`}}
-                            src='/background/cloud1.svg'
-                            alt="clouds"
+                            src='/icons/mist.svg'
+                            alt="mist"
                             width={randomSize()}
                             height={randomSize()}
                             priority
                         />
                         <Image
-                            key={`${i}+cloud2`}
-                            className={styles.cloud2}
+                            key={`${i}+mist2`}
+                            className={styles.mist2}
                             style={{top:`${randomNum()-40}vh`}}
-                            src='/background/cloud2.svg'
-                            alt="clouds"
+                            src='/icons/mist.svg'
+                            alt="mist"
                             width={randomSize()}
                             height={randomSize()}
                             priority

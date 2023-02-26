@@ -1,27 +1,23 @@
-//create a rain component
-
 import React from 'react'
 import Image from 'next/image'
 import styles from '../styles/WeatherCard.module.css'
 
-//create a random number function between 1 and 100
-
+//create a random number function between 0 and 100 for the raindrops position
 const randomNum = () => {
     return Math.floor(Math.random() * 100);
 }
 
-//create a random time function between 1 and 30
-
+//creates a random time function between 0 and 20
 const randomTime = () => {
     return Math.floor(Math.random() * 20);
 }
 
-//create a random size between 1 and 5
+//creates a random size for the raindrops
 const randomSize = () => {
     return Math.floor(Math.random() * (10 - 5 + 5) + 5);
 }
 
-//create a raining effect
+//creates a drizzle effect
 
 export default function Drizzle() {
     return (

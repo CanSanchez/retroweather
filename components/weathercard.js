@@ -9,6 +9,7 @@ import Snow from './snow'
 import Thunderstorm from './thunderstorm'
 import Drizzle from './drizzle'
 import Clouds from './clouds'
+import Mist from './mist'
 
 export default function WeatherCard(props) {
 
@@ -18,61 +19,46 @@ export default function WeatherCard(props) {
     return (
         <div key={`${props.index}wc`} className={styles.WeatherCard} style={props.isActive? {display: 'flex'}:{display: 'none'}}>
             {props.weather === "Clouds" &&
-            <>
-                <Clouds />
-            </>
+                <>
+                    <Clouds />
+                </>
             }
             {props.weather === "Clear" &&
-            <>
-                <Image
-                    className={styles.clear}
-                    src="/icons/sun.svg"
-                    alt="rainy"
-                    width={180}
-                    height={180}
-                    priority
-                />
-            </>
+                <>
+                    <Image
+                        className={styles.clear}
+                        src="/icons/sun.svg"
+                        alt="rainy"
+                        width={180}
+                        height={180}
+                        priority
+                    />
+                </>
             }
             {props.weather === "Rain" &&
-            <>
-                <Rain />
-            </>
+                <>
+                    <Rain />
+                </>
             }
             {props.weather === "Drizzle" &&
-            <>
-                <Drizzle />
-            </>
+                <>
+                    <Drizzle />
+                </>
             }
             {props.weather === "Snow" &&
-            <>
-                <Snow />
-            </>
+                <>
+                    <Snow />
+                </>
             }
             {props.weather === "Thunderstorm" &&
-            <>
-                <Thunderstorm />
-            </>
+                <>
+                    <Thunderstorm />
+                </>
             }
             {props.weather === "Atmosphere" &&
-            <>
-                <Image
-                    className={styles.mist1}
-                    src="/icons/mist.svg"
-                    alt="mist"
-                    width={500}
-                    height={500}
-                    priority
-                />
-                <Image
-                    className={styles.mist2}
-                    src="/icons/mist.svg"
-                    alt="mist"
-                    width={800}
-                    height={800}
-                    priority
-                />
-            </>
+                <>
+                    <Mist />
+                </>
             }
             <div className={styles.container}>
                 <h1>{location}</h1>

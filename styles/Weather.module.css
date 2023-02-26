@@ -101,6 +101,7 @@
 
 /* float animation */
 @keyframes float {
+
     0% {
         transform: translateY(0);
     }
@@ -110,11 +111,13 @@
     100% {
         transform: translateY(0);
     }
+    
 }
 
 /* animation to move from left to right */
 
 @keyframes move {
+
     0% {
         transform: translateX(0);
     }
@@ -130,6 +133,7 @@
 /* Tablet and smaller screens */
 
 @media only screen and (max-width: 768px) {
+
     .buttonContainer {
        width: 30%;
        top: 70%;
@@ -137,4 +141,5 @@
     .button {
         margin: 2em 1em 1em 1em;
     }
+
 }

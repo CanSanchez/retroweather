@@ -16,6 +16,7 @@ export default function WeatherPage() {
     const location = router.query.location || "Vancouver";
     console.log(location);
 
+    //API key with env variable
     const apiKey = process.env.NEXT_PUBLIC_OPENWEATHERMAP_API_KEY;
     const units = "metric";
 
@@ -99,7 +100,7 @@ export default function WeatherPage() {
                     break;
             }
             
-            //return json object
+            //returns json object
             return {
                 day: day,
                 month: month,
@@ -144,7 +145,6 @@ export default function WeatherPage() {
   
     const handleNextClick = () => {
       setActiveIndex((activeIndex + 1) % data.length);
-      //if activeIndex is 4, then set it to 0
     };
 
   return (
@@ -181,7 +181,7 @@ export default function WeatherPage() {
                         month={weather.month}
                         date={weather.date}
                         temp={weather.temp}
-                        weather={'Thunderstorm'}
+                        weather={weather.weather}
                     />
                  )
             }

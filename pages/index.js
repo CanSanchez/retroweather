@@ -15,10 +15,10 @@ export default function Home() {
     router.push(`/weather?location=${location}`);
   }
 
-  //pass the location from this page to the weather page
+  //passes the location from this page to the weather page
   const [location, setLocation] = useState("Vancouver");
   
-  //click when user presses enter
+  //clicks when user presses enter
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
       handleSubmit();
