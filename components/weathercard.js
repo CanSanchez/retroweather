@@ -12,7 +12,7 @@ import Drizzle from './drizzle'
 export default function WeatherCard(props) {
 
    const router = useRouter()
-   const location = router.query.location
+   const location = router.query.location || "Vancouver"
 
     return (
         <div key={props.index} className={styles.WeatherCard} style={props.isActive? {display: 'flex'}:{display: 'none'}}>

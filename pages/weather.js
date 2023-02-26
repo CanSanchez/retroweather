@@ -6,6 +6,7 @@ import axios from 'axios'
 import { useRouter } from 'next/router'
 import WeatherCard from '@/components/weathercard'
 import ArrowButton from '@/components/arrowbutton'
+import Link from 'next/link'
 
 export default function WeatherPage() {
 
@@ -67,22 +68,6 @@ export default function WeatherPage() {
                 month = 'November';
             } else if(weather.dt_txt.substr(5,2) === '12') {
                 month = 'December';
-            }
-
-            if(weather.weather[0].main === 'Clouds') {
-                icon = '/icons/broken-clouds.png';
-            } else if(weather.weather[0].main === 'Clear') {
-                icon = '/icons/clear-sky.png';
-            } else if(weather.weather[0].main === 'Rain') {
-                icon = '/icons/rain.png';
-            } else if(weather.weather[0].main === 'Snow') {
-                icon = '/icons/snow.png';
-            } else if(weather.weather[0].main === 'Thunderstorm') {
-                icon = '/icons/thunderstorm.png';
-            } else if(weather.weather[0].main === 'Drizzle') {
-                icon = '/icons/shower-rain.png';
-            } else if(weather.weather[0].main === 'Atmosphere') {
-                icon = '/icons/mist.png';
             }
 
             var now = new Date(weather.dt_txt);
@@ -177,40 +162,27 @@ export default function WeatherPage() {
                     icon='/icons/prevarrow.svg'
                     onClick={handlePrevClick}
                     name='prev'
-                    style={{
-                        position: 'fixed',
-                        left: '5em',
-                        top: '50%'
-                    }}
+                    // style={{
+                    //     position: 'fixed',
+                    //     left: '5em',
+                    //     top: '50%'
+                    // }}
                 />
                 <ArrowButton
                     icon='/icons/nextarrow.svg'
                     onClick={handleNextClick}
                     name='next'
-                    style={{
-                        position: 'fixed',
-                        right: '5em',
-                        top: '50%'
-                    }}
+                    // style={{
+                    //     position: 'fixed',
+                    //     right: '5em',
+                    //     top: '50%'
+                    // }}
                 />
             </div>
         {data && data.map((weather, index) => {
 
             if (weather !== undefined) {
                  return (
-                    // <div key={index}>
-                    //     <Image
-                    //         src={weather.icon}
-                    //         alt={weather.icon}
-                    //         width={180}
-                    //         height={180}
-                    //         priority
-                    //     />
-                    //     <p>{weather.day}</p>
-                    //     <p>{weather.month} {weather.date}</p>
-                    //     <p>{weather.temp}°C</p>
-                    //     <p>{weather.weather}</p>
-                    // </div>
                     <WeatherCard
                         isActive={activeIndex === index}
                         key={index}
@@ -224,6 +196,12 @@ export default function WeatherPage() {
                  )
             }
         })}
+            <button
+                onClick={() => router.back()} 
+                className={styles.button}
+                style={{position: 'fixed', bottom: '2em', left: '1em'}}>
+                Back
+            </button>
         </div>
         <div className={styles.foreGround}>
           <Image 

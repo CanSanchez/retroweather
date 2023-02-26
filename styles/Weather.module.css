@@ -19,66 +19,6 @@
     z-index: 4;
 }
 
-.h1 {
-    font-family: 'Press Start 2p';
-    font-size: 5em;
-    font-kerning: 2em;
-    color: #FFDA40;
-    z-index: 4;
-    margin: 1em;
-}
-.h1::before {
-    content: "Where to?";
-    display: block;
-    font-family: 'Press Start 2p';
-    font-size: 1em;
-    font-kerning: 2em;
-    color: #E22B17;
-    z-index: 4;
-    margin: 1em;
-    position: absolute;
-    top: 1.35em;
-    left: 4em;
-}
-
-#logo {
-    width: 100%;
-    height: fit-content;
-    z-index: 4;
-    margin: 2em;
-    animation: float 5s ease-in-out infinite;
-}
-
-.header::before {
-    content: '';
-    display: block;
-    background-image: url('/background/cloud1.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 20em;
-    height: 20em;
-    position: absolute;
-    top: 2em;
-    left: 15em;
-    z-index: 3;
-    animation: move 10s ease-in-out infinite;
-}
-
-.header::after {
-    content: '';
-    display: block;
-    background-image: url('/background/cloud2.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 20em;
-    height: 20em;
-    position: absolute;
-    top: 10em;
-    right: 25em;
-    z-index: 3;
-    animation: move reverse 10s ease-in-out infinite;
-}
-
 @font-face {
     font-family: 'Press Start 2p';
     src: url('/fonts/PressStart2P-Regular.ttf');
@@ -98,25 +38,7 @@
     box-shadow: 0 .3em #E22B17;
     cursor: pointer;
     transition: all .2s ease-in-out;
-    z-index: 4;
-}
-
-.input {
-    width: 50%;
-    height: fit-content;
-    padding: 1em 2em;
-    margin: 1em;
-    border: none;
-    border-radius: 3px;
-    font-family: 'Press Start 2p';
-    font-size: 1em;
-    font-kerning: 2em;
-    background-color: #ffffff;
-    box-shadow: 0 .3em #FFDA40;
-    cursor: pointer;
-    transition: all .2s ease-in-out;
-    z-index: 4;
-    text-align: center;
+    z-index: 15;
 }
 
 .container {
@@ -128,6 +50,17 @@
     z-index: 4;
     width: 100vw;
     height: 100vh;
+}
+
+.buttonContainer {
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2em 4em;
+    position: fixed;
+    top:50%;
+    z-index: 100;
 }
 
 
@@ -191,4 +124,16 @@
         transform: translateX(0);
     }
 
+}
+
+/* Tablet and smaller screens */
+
+@media only screen and (max-width: 768px) {
+    .buttonContainer {
+       width: 30%;
+       top: 70%;
+    }
+    .button {
+        margin: 2em 1em 1em 1em;
+    }
 }

@@ -202,3 +202,132 @@
     }
 
 }
+
+/* Tablet and smaller screens */
+
+@media only screen and (max-width: 820px) {
+
+    .main {
+        height: 100vh;
+        min-height: 100vh;
+        max-height: 100vh;
+        overflow: hidden;
+    }
+
+    .header::before {
+        width: 20em;
+        height: 20em;
+        position: absolute;
+        top: 15em;
+        left: 2em;
+    }
+
+    .header::after {
+        width: 20em;
+        height: 20em;
+        position: absolute;
+        top: 20em;
+        right: 5em;
+    }
+
+    /* animation to move from left to right */
+
+    @keyframes move {
+        0% {
+            transform: translateX(0);
+        }
+        50% {
+            transform: translateX(5em);
+        }
+        100% {
+            transform: translateX(0);
+        }
+
+    }
+
+    .header {
+        height: 100vh;
+        min-height: 100vh;
+        max-height: 100vh;
+        overflow: hidden;
+    }
+
+    .h1 {
+        font-size: 3em;
+    }
+    #logo {
+        margin: 2em;
+    }
+    .button {
+        font-size: .8em;
+    }
+    .input {
+        width: 80%;
+        font-size: .8em;
+    }
+}
+
+/* Mobile and smaller screens */
+
+@media only screen and (max-width: 420px) {
+
+    .main {
+        height: 100vh;
+        min-height: 100vh;
+        max-height: 100vh;
+        overflow: hidden;
+    }
+
+    .header::before {
+        width: 15em;
+        height: 15em;
+        position: absolute;
+        top: 15em;
+        left: 2em;
+    }
+
+    .header::after {
+        width: 10em;
+        height: 10em;
+        position: absolute;
+        top: 20em;
+        right: 5em;
+    }
+
+    /* animation to move from left to right */
+
+    @keyframes move {
+        0% {
+            transform: translateX(0);
+        }
+        50% {
+            transform: translateX(2em);
+        }
+        100% {
+            transform: translateX(0);
+        }
+
+    }
+
+    .header {
+        height: 100vh;
+        min-height: 100vh;
+        max-height: 100vh;
+        overflow: hidden;
+    }
+
+    .h1 {
+        font-size: 1.5em;
+        margin: 1em 0;
+    }
+    #logo {
+        width: 80%;
+    }
+    .button {
+        font-size: .6em;
+    }
+    .input {
+        width: 80%;
+        font-size: .6em;
+    }
+}

@@ -188,3 +188,31 @@
         opacity: 0;
     }
 }
+
+/* Tablet and smaller devices */
+
+@media (max-width: 820px) {
+
+    .WeatherCard p, .WeatherCard h1, .WeatherCard h2 {
+        font-size: 1rem;
+    }
+    .WeatherCard h1 {
+        font-size: 2rem;
+    }
+    .WeatherCard h2 {
+        font-size: 1rem;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #FFDA40;
+        border-radius: 5px;
+        border: black 8px solid;
+        padding: 2em;
+        margin: 2em;
+        width: 70%;
+        z-index: 15;
+    }
+}
