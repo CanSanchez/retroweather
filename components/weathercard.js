@@ -28,7 +28,7 @@ export default function WeatherCard(props) {
                     <Image
                         className={styles.clear}
                         src="/icons/sun.svg"
-                        alt="rainy"
+                        alt="sun"
                         width={180}
                         height={180}
                         priority
